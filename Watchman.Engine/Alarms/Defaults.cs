@@ -834,5 +834,27 @@ namespace Watchman.Engine.Alarms
                 Namespace = AwsNamespace.CloudFront
             }
         };
+
+        public static IList<AlarmDefinition> SageMaker = new List<AlarmDefinition>()
+        {
+            new AlarmDefinition()
+            {
+                Enabled = true,
+                Name = "Invocation4XXErrorHigh",
+                Metric = "Invocation4XXErrors",
+                Period = TimeSpan.FromMinutes(5),
+                EvaluationPeriods = 5,
+                Threshold = new Threshold
+                {
+                    ThresholdType = ThresholdType.Alsolute,
+                    ValueTuple = 10
+                },
+                DimensionNames = new[] { "EndpointName", "VariantName" },
+                ComparisonOperator = ComparisonOperator.GreaterThanOrEqualToThreshold,
+                AlertOnInsufficientData = false,
+                Statistic = Statistic.Sum,
+                Namespace = AwsNamespace.SageMaker
+            }
+        };
     }
 }
