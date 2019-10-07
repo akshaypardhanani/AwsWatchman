@@ -18,6 +18,7 @@ namespace Watchman.Configuration
         public AwsServiceAlarms<SqsResourceConfig> Sqs { get; set; }
         public AwsServiceAlarms<ResourceConfig> Dax { get; set; }
         public AwsServiceAlarms<ResourceConfig> CloudFront { get; set; }
+        public AwsServiceAlarms<ResourceConfig> SageMaker { get; set; }
 
 
         public IList<IAwsServiceAlarms> AllServices => new IAwsServiceAlarms[]
@@ -38,7 +39,8 @@ namespace Watchman.Configuration
             {"DynamoDb", DynamoDb},
             {"Sqs", Sqs },
             {"Dax", Dax },
-            {"CloudFront", CloudFront }
+            {"CloudFront", CloudFront },
+            {"SageMaker", SageMaker }
         };
     }
 }

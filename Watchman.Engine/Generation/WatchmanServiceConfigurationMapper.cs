@@ -79,6 +79,12 @@ namespace Watchman.Engine.Generation
             return Map(input, id, a => a?.Services?.CloudFront);
         }
 
+        public static WatchmanServiceConfiguration<ResourceConfig> MapSageMaker(WatchmanServiceConfiguration input)
+        {
+            const string id = "SageMaker";
+            return Map(input, id, a => a?.Services?.SageMaker);
+        }
+
         private static WatchmanServiceConfiguration<TConfig> Map<TConfig>(WatchmanConfiguration input,
             string serviceName,
             Func<AlertingGroup, AwsServiceAlarms<TConfig>> readServiceFromGroup) where TConfig : class

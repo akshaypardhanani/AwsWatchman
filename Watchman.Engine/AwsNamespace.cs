@@ -14,5 +14,6 @@ namespace Watchman.Engine
         public const string StepFunction = "AWS/States";
         public const string DAX = "AWS/DAX";
         public const string CloudFront = "AWS/CloudFront";
+        public const string SageMaker = "AWS/SageMaker";
     }
 }
