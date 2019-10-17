@@ -19,10 +19,10 @@ namespace Watchman.AwsResources.Services.SageMaker
 
         protected override string GetResourceName(EndpointSummary resource)
         {
-            return resource.Id;
+            return resource.EndpointName;
         }
 
-        protected override async Task<IEnumerable<EndpointSummary>> fetchResources()
+        protected override async Task<IEnumerable<EndpointSummary>> FetchResources()
         {
             var results = new List<IEnumerable<EndpointSummary>>();
             string nextToken = null;
@@ -36,7 +36,7 @@ namespace Watchman.AwsResources.Services.SageMaker
 
                 results.Add(response.Endpoints.ToList());
                 nextToken = response.NextToken;
-            } while (!string.IsNullOrEmpty(nextMarker));
+            } while (!string.IsNullOrEmpty(nextToken));
 
             return results.SelectMany(x => x).ToList();
         }

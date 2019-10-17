@@ -934,8 +934,8 @@ namespace Watchman.Engine.Alarms
                 EvaluationPeriods = 5,
                 Threshold = new Threshold
                 {
-                    ThresholdType = ThresholdType.Alsolute,
-                    ValueTuple = 10
+                    ThresholdType = ThresholdType.Absolute,
+                    Value = 10
                 },
                 DimensionNames = new[] { "EndpointName", "VariantName" },
                 ComparisonOperator = ComparisonOperator.GreaterThanOrEqualToThreshold,

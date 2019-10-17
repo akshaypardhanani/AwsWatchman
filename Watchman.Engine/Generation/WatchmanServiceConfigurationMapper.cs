@@ -85,7 +85,7 @@ namespace Watchman.Engine.Generation
             return Map(input, id, a => a?.Services?.CloudFront);
         }
 
-        public static WatchmanServiceConfiguration<ResourceConfig> MapSageMaker(WatchmanServiceConfiguration input)
+        public static WatchmanServiceConfiguration<ResourceConfig> MapSageMaker(WatchmanConfiguration input)
         {
             const string id = "SageMaker";
             return Map(input, id, a => a?.Services?.SageMaker);

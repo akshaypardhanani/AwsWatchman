@@ -23,6 +23,7 @@ using Watchman.AwsResources.Services.RdsCluster;
 using Watchman.AwsResources.Services.Sqs;
 using Watchman.AwsResources.Services.StepFunction;
 using Watchman.AwsResources.Services.VpcSubnet;
+using Watchman.AwsResources.Services.SageMaker;
 using Watchman.Configuration;
 using Watchman.Configuration.Generic;
 using Watchman.Engine;
@@ -90,6 +91,10 @@ namespace Watchman.IoC
 
             AddService<DistributionSummary, CloudFrontSource, CloudFrontAlarmDataProvider, ResourceConfig>(
                 WatchmanServiceConfigurationMapper.MapCloudFront, Defaults.CloudFront
+            );
+
+            AddService<Amazon.SageMaker.Model.EndpointSummary, SageMakerSource, SageMakerAlarmDataProvider, ResourceConfig> (
+                WatchmanServiceConfigurationMapper.MapSageMaker, Defaults.SageMaker
             );
         }
 
